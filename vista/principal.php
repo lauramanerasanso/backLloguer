@@ -1,16 +1,136 @@
 <?php
 include_once '../php/controlAcces.php';
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cases</title>
+    <style>
+
+        header{
+            background-color: white
+        }
+        #c{
+            margin-top: 5%;
+        }
+        body{
+            background-color: whitesmoke;
+        }
+        body header nav ul li .nav-link {
+            padding-right: 25px !important;
+            font-family: "Bungee", cursive;
+            color: black;
+            font-size: 20px;
+        }
+
+        .nav-link{
+            font-family: 'Nixie One', cursive;
+            font-size: 24px;
+
+
+        }
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .nav-tabs {
+            margin-bottom: 0;
+
+        }
+
+        fieldset {
+            border: 1px solid #ddd!important;
+            margin: 0;
+            padding: 10px;
+            position: relative;
+            border-radius: 4px;
+            padding-left: 10px!important;
+            width: 100%;
+        }
+
+        #leg1 {
+            font-size: 18px;
+            width: 10%;
+            border-radius: 4px;
+            padding: 5px 5px 5px 10px;
+        }
+
+        #leg2 {
+            font-size: 18px;
+            width: 7%;
+            border-radius: 4px;
+            padding: 5px 5px 5px 10px;
+        }
+
+        .lab {
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
-<h1>Pantalla principal</h1>
+  <?php
+  include('header.php');
+  ?>
+    <div id="cardsCases" class="container">
+
+    </div>
 </body>
+<script>
+    $(document).ready(function(){
+
+        function carregarCases(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    var cases = JSON.parse(this.responseText);
+                    for(cs in cases) {
+                        var rowDiv = $("<div/>", {class: "row",});
+                        $("#cardsCases").append(rowDiv);
+
+                        var id = cases[cs].id;
+                        var nom = cases[cs].traduccioNom;
+                        var desc = cases[cs].tradDescripcio;
+                        var foto = "../public/img/"+cases[cs].img_principal;
+
+                        var cardDiv = $("<div/>", {class: "card mb-3"});
+                        var cardRow = $("<div/>", {class: "row g-0"});
+                        var cardCol1 = $("<div/>", {class: "col-md-4"});
+                        var cardImg = $("<img/>", {src: foto,class:"card-img"});
+
+                        cardCol1.append(cardImg);
+
+                        var cardCol2 = $("<div/>", {class: "col-md-8"});
+                        var cardBody = $("<div/>", {class: "card-body"});
+                        var cardH5 = $("<h5/>", {class: "card-title", text: nom});
+                        var cardP = $("<p/>", {class: "card-text", text: desc});
+
+                        cardBody.append(cardH5, cardP);
+                        cardCol2.append(cardBody);
+                        cardRow.append(cardCol1, cardCol2);
+                        cardDiv.append(cardRow);
+                        rowDiv.append(cardDiv);
+
+                    }
+                }
+            };
+            xhttp.open("GET","../Controlador/api/controladorCasa.php", true);
+            xhttp.send();
+        }
+
+        carregarCases();
+
+    });
+</script>
 </html>

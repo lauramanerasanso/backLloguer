@@ -8,27 +8,14 @@ class controlador_casa
 public function select(){
 
     $con_db = DataBase::getConn();
-
-
     $casa = new Casa($con_db);
-    $array_casa = array();
 
-    $resultat = $casa->select();
+    $result = $casa->select();
 
-    while ($row = $resultat->fetch_assoc()){
-        $_casa = array(
-            'id' => $row['id'],
-            'nom' => $row['nom'],
-            'descripcio' => $row['descripcio'],
-            'banys' => $row['banys'],
-            'hab' => $row['hab']
-        );
+    $outp = $result->fetch_all(MYSQLI_ASSOC);
 
-        array_push($array_casa,$_casa);
-    }
+    echo json_encode($outp);
 
-
-    echo json_encode($array_casa);
 }
 
 public function insertCasa($pob,$banys, $hab, $x , $y, $preu, $nom1, $nom2, $desc1, $desc2,$caract){
@@ -78,5 +65,5 @@ public function inserirFotos($idCasa,$f1,$f2,$f3,$f4,$f5){
 
 
 
-}
 
+}
