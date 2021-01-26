@@ -16,68 +16,21 @@ include_once '../php/controlAcces.php';
     <title>Cases</title>
     <style>
 
-        header{
-            background-color: white
-        }
-        #c{
-            margin-top: 5%;
-        }
-        body{
-            background-color: whitesmoke;
-        }
-        body header nav ul li .nav-link {
-            padding-right: 25px !important;
-            font-family: "Bungee", cursive;
-            color: black;
-            font-size: 20px;
-        }
-
-        .nav-link{
-            font-family: 'Nixie One', cursive;
-            font-size: 24px;
-
-
-        }
-        .tab-content {
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-            background-color: white;
-        }
-
-        .nav-tabs {
-            margin-bottom: 0;
-
-        }
-
-        fieldset {
-            border: 1px solid #ddd!important;
-            margin: 0;
-            padding: 10px;
-            position: relative;
-            border-radius: 4px;
-            padding-left: 10px!important;
-            width: 100%;
-        }
-
-        #leg1 {
-            font-size: 18px;
-            width: 10%;
-            border-radius: 4px;
-            padding: 5px 5px 5px 10px;
-        }
-
-        #leg2 {
-            font-size: 18px;
-            width: 7%;
-            border-radius: 4px;
-            padding: 5px 5px 5px 10px;
-        }
-
-        .lab {
-            margin-left: 20px;
-        }
+    header{
+        background-color: white
+    }
+    #cardsCases{
+        margin-top: 5%;
+    }
+    body{
+        background-color: whitesmoke;
+    }
+    body header nav ul li .nav-link {
+        padding-right: 25px !important;
+        font-family: "Bungee", cursive;
+        color: black;
+        font-size: 20px;
+    }
     </style>
 </head>
 <body>
