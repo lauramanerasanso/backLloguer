@@ -11,6 +11,7 @@ include_once '../php/controlAcces.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+          <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Cases</title>
     <style>
@@ -102,7 +103,7 @@ include_once '../php/controlAcces.php';
                         var id = cases[cs].id;
                         var nom = cases[cs].traduccioNom;
                         var desc = cases[cs].tradDescripcio;
-                        var foto = "../public/img/"+cases[cs].img_principal;
+                        var foto = "../imatges/"+cases[cs].img_principal;
 
                         var cardDiv = $("<div/>", {class: "card mb-3"});
                         var cardRow = $("<div/>", {class: "row g-0"});
@@ -125,7 +126,7 @@ include_once '../php/controlAcces.php';
                     }
                 }
             };
-            xhttp.open("GET","../Controlador/api/controladorCasa.php", true);
+            xhttp.open("GET","../controlador/API/casa/selectCasa.php", true);
             xhttp.send();
         }
 
