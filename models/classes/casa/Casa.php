@@ -91,7 +91,7 @@ class casa
     public function traduccio($idCasa,$nom1,$desc1,$nom2,$desc2){
 
         $stmt = $this->conexio->prepare("INSERT INTO traduccioCasa VALUES (?, 'CA', ?, ?), (?,'EN',?,?)");
-        $stmt->bind_param("ississ", $idCasa ,$nom1,$desc1,$idCasa,$nom2,$desc2);
+        $stmt->bind_param("ississ", $idCasa ,$desc1,$nom1,$idCasa,$desc2,$nom2);
         $stmt->execute();
 
 
