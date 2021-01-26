@@ -13,8 +13,8 @@ public function select(){
     $result = $casa->select();
 
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-
-    echo json_encode($outp);
+    return $outp;
+    
 
 }
 

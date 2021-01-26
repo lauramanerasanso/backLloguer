@@ -6,4 +6,5 @@ include_once '../../../models/classes/casa/Casa.php';
 include_once '../../../models/classes/casa/Poblacio.php';
 
 $controlador = new controlador_casa();
-$controlador->select();
+$result =$controlador->select();
+echo json_encode($result);
