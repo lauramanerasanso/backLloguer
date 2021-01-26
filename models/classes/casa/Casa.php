@@ -21,7 +21,7 @@ class casa
 
         $query = "SELECT casa.id, traduccioCasa.traduccioNom, traduccioCasa.tradDescripcio, imatge.img_principal FROM casa JOIN traduccioCasa ON casa.id = traduccioCasa.casa_id JOIN imatge ON casa.id = imatge.casa_id WHERE traduccioCasa.idioma_id='CA';";
 
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->conexio->prepare($query);
         $stmt->execute();
 
         $result = $stmt->get_result();
