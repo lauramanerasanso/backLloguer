@@ -1,37 +1,38 @@
 @import '_colors';
+@import '_botons.scss';
 
-body{
-    background-image: linear-gradient(to top, $color_principal 0%, $white 100%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+#d{
+
+    background: #222 url('../../imatges/casa_1.png') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.auth{
-    margin-top: 250px;
+#logo{
+    margin-top:-650px;
+
+}
+
+.auth {
+    margin-top: 100px;
+    margin-left: 0;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: $white_opacitat_baixa;
+    background-color: $black;
     border-radius: 2px;
     color: $white;
-    h1{
+    font-family: "Bungee", cursive;
+
+    h1 {
         text-align: center;
     }
 }
 
-#bEntrar{
-    background-color: $color_principal;
-    border-color: $color_principal;
-    color: $white;
-}
 
-#bCanvi{
-    background-color: $color_principal;
-    border-color: $color_principal;
-    color: $white;
-}
 
-#bEntrar:hover{
-    background-color: $color_p_hover;
-    border-color: $color_p_hover;
-}
+
 

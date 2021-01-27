@@ -15,71 +15,7 @@ include_once '../php/controlAcces.php';
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
-    <style>
-
-        header{
-            background-color: white
-        }
-        #c{
-            margin-top: 5%;
-        }
-        body{
-            background-color: whitesmoke;
-        }
-        body header nav ul li .nav-link {
-            padding-right: 25px !important;
-            font-family: "Bungee", cursive;
-            color: black;
-            font-size: 20px;
-        }
-
-        .nav-link{
-            font-family: 'Nixie One', cursive;
-            font-size: 24px;
-
-
-        }
-        .tab-content {
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-            background-color: white;
-        }
-
-        .nav-tabs {
-            margin-bottom: 0;
-
-        }
-
-        fieldset {
-            border: 1px solid #ddd!important;
-            margin: 0;
-            padding: 10px;
-            position: relative;
-            border-radius: 4px;
-            padding-left: 10px!important;
-            width: 100%;
-        }
-
-        #leg1 {
-            font-size: 18px;
-            width: 10%;
-            border-radius: 4px;
-            padding: 5px 5px 5px 10px;
-        }
-
-        #leg2 {
-            font-size: 18px;
-            width: 7%;
-            border-radius: 4px;
-            padding: 5px 5px 5px 10px;
-        }
-
-        .lab {
-            margin-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/css/_general.css"/>
 </head>
 
 <body>
@@ -145,7 +81,7 @@ include_once '../php/controlAcces.php';
 
                 </div>
                 <br/>
-                <button class="btn btn-dark offset-10" id="continuar">Continuar </button>
+                <button class="btn col-2 offset-10" id="continuar">Continuar </button>
 
             </div>
 
@@ -281,7 +217,7 @@ include_once '../php/controlAcces.php';
 
             </div>
             <br/>
-            <button class="btn btn-dark offset-10" id="continuar2">Continuar </button>
+            <button class="btn col-2 offset-10" id="continuar2">Continuar </button>
 
 
         </div>
@@ -304,7 +240,7 @@ include_once '../php/controlAcces.php';
                 </div>
 
                 <br/>
-                <button class="btn btn-dark offset-10" id="continuar3">Continuar </button>
+                <button class="btn col-2 offset-10" id="continuar3">Continuar </button>
 
             </div>
         </div>
@@ -321,7 +257,7 @@ include_once '../php/controlAcces.php';
             </div>
 
             <br/>
-            <button class="btn btn-dark offset-10" id="continuar4">Continuar </button>
+            <button class="btn col-2 offset-10" id="continuar4">Continuar </button>
 
 
         </div>
@@ -348,7 +284,7 @@ include_once '../php/controlAcces.php';
                     <label class="control-label col-md-1" for="inlineFormCustomSelect">Foto 5</label>
                     <input type="file" class="form-control col-4" id="f5" name="f5">
                 </div>
-                    <button type="submit" class="btn btn-dark offset-10" id="insertar">Insertar </button>
+                    <button type="submit" class="btn col-2offset-10" id="insertar">Insertar </button>
                 </form>
             </div>
 

@@ -1,31 +1,40 @@
-body {
-  background-image: linear-gradient(to top, #967ADC 0%, #ffffff 100%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-
-.auth {
-  margin-top: 250px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-  color: #ffffff;
-}
-.auth h1 {
-  text-align: center;
-}
-
-#bEntrar {
+.btn {
   background-color: #967ADC;
   border-color: #967ADC;
   color: #ffffff;
 }
 
-
-#bEntrar:hover {
+.btn:hover {
   background-color: rgba(150, 122, 220, 0.7);
   border-color: rgba(150, 122, 220, 0.7);
+}
+
+#d {
+  background: #222 url("../../imatges/casa_1.png") center center no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#logo {
+  margin-top: -650px;
+}
+
+.auth {
+  margin-top: 100px;
+  margin-left: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  color: #ffffff;
+  font-family: "Bungee", cursive;
+}
+.auth h1 {
+  text-align: center;
 }
 
 /*# sourceMappingURL=_autenticacio.css.map */

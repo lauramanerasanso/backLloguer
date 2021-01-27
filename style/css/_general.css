@@ -1,0 +1,94 @@
+.btn {
+  background-color: #967ADC;
+  border-color: #967ADC;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: rgba(150, 122, 220, 0.7);
+  border-color: rgba(150, 122, 220, 0.7);
+}
+
+header {
+  background-color: white;
+}
+
+#c {
+  margin-top: 5%;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+body header nav ul li .nav-link {
+  padding-right: 25px !important;
+  font-family: "Bungee", cursive;
+  color: black;
+  font-size: 20px;
+}
+
+.nav-link {
+  font-family: "Nixie One", cursive;
+  font-size: 24px;
+  color: #000000;
+}
+
+.nav-link:hover {
+  color: #967ADC;
+}
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  background-color: white;
+}
+
+.nav-tabs {
+  margin-bottom: 0;
+}
+
+fieldset {
+  border: 1px solid #ddd !important;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+  border-radius: 4px;
+  padding-left: 10px !important;
+  width: 100%;
+}
+
+#leg1 {
+  font-size: 18px;
+  width: 10%;
+  border-radius: 4px;
+  padding: 5px 5px 5px 10px;
+}
+
+#leg2 {
+  font-size: 18px;
+  width: 7%;
+  border-radius: 4px;
+  padding: 5px 5px 5px 10px;
+}
+
+.lab {
+  margin-left: 20px;
+}
+
+.auth {
+  margin-top: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  color: #ffffff;
+  font-family: "Bungee", cursive;
+}
+.auth h1 {
+  text-align: center;
+}
+
+/*# sourceMappingURL=_general.css.map */

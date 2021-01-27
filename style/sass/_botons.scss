@@ -1,0 +1,10 @@
+.btn{
+  background-color: $color_principal;
+  border-color: $color_principal;
+  color: $white;
+}
+
+.btn:hover{
+  background-color: $color_p_hover;
+  border-color: $color_p_hover;
+}
