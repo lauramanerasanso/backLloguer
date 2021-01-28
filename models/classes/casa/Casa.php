@@ -153,7 +153,7 @@ class casa
 
     public function deleteCaract($idCasa)
     {
-        $stmt = $this->conexio->prepare("DELETE FROM caracteristicacasa WHERE casa_id = ?");
+        $stmt = $this->conexio->prepare("DELETE FROM caracteristicaCasa WHERE casa_id = ?");
         $stmt->bind_param("i", $idCasa);
         $stmt->execute();
 
@@ -164,7 +164,7 @@ class casa
     public function updateTraduccio($idCasa, $desc, $nom, $idioma)
     {
 
-        $stmt = $this->conexio->prepare("UPDATE traducciocasa SET tradDescripcio = ?, traduccioNom = ? WHERE casa_id = ? AND idioma_id = ?");
+        $stmt = $this->conexio->prepare("UPDATE traduccioCasa SET tradDescripcio = ?, traduccioNom = ? WHERE casa_id = ? AND idioma_id = ?");
         $stmt->bind_param("ssis", $desc, $nom, $idCasa, $idioma);
         $stmt->execute();
 
