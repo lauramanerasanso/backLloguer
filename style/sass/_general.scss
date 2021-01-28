@@ -7,6 +7,9 @@ header{
 #c{
   margin-top: 5%;
 }
+#cardsCases{
+  margin-top: 5%;
+}
 body{
   background-color: whitesmoke;
 }
@@ -15,6 +18,9 @@ body header nav ul li .nav-link {
   font-family: "Bungee", cursive;
   color: black;
   font-size: 20px;
+}
+.navbar-toggler{
+  color:$color_principal !important;
 }
 
 .nav-link{
@@ -38,6 +44,12 @@ body header nav ul li .nav-link {
 .nav-tabs {
   margin-bottom: 0;
 
+}
+
+.card{
+  .col-md-4{
+    padding: 0px;
+  }
 }
 
 fieldset {

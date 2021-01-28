@@ -1,8 +1,8 @@
 <?php
 include_once('../../controlador_casa.php');
-include_once '../../../models/config/DataBase.php';
-include_once '../../../models/classes/casa/Casa.php';
-include_once '../../../models/classes/casa/Poblacio.php';
+include_once ('../../../models/config/DataBase.php');
+include_once ('../../../models/classes/casa/Casa.php');
+include_once ('../../../models/classes/casa/Poblacio.php');
 
 
 if(isset($_POST['pob']) && isset($_POST['banys']) && isset($_POST['hab']) && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['preu']) && isset($_POST['nom1']) && isset($_POST['nom2']) && isset($_POST['desc1']) && isset($_POST['desc2']) && isset($_POST['caract'])){

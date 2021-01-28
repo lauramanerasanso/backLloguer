@@ -100,4 +100,78 @@ class casa
     }
 
 
+    public function select_casa_nom($id)
+    {
+
+        $stmt = $this->conexio->prepare("SELECT traduccioCasa.traduccioNom, traduccioCasa.tradDescripcio FROM casa JOIN traduccioCasa ON traduccioCasa.casa_id=casa.id WHERE casa.id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $resultat = $stmt->get_result();
+
+        return $resultat;
+
+    }
+
+    public function select_caract($id)
+    {
+
+        $stmt = $this->conexio->prepare("SELECT caracteristicaCasa.caracteristica_id FROM casa JOIN caracteristicaCasa ON caracteristicaCasa.casa_id = casa.id WHERE casa.id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $resultat = $stmt->get_result();
+
+        return $resultat;
+
+    }
+
+    public function select_info($id)
+    {
+
+        $stmt = $this->conexio->prepare("SELECT casa.nHabitacions, casa.nBanys, casa.x, casa.y, poblacio.nom, casa.tarifaDefault FROM casa JOIN poblacio ON poblacio.id = casa.poblacio_id WHERE casa.id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $resultat = $stmt->get_result();
+
+        return $resultat;
+    }
+
+    public function updateCasa($idCasa, $nBanys, $nHab, $x, $y, $pob, $tarifa)
+    {
+
+
+        $stmt = $this->conexio->prepare("UPDATE casa SET nBanys = ?, nHabitacions = ?, x = ?, y = ? , poblacio_id = ? , tarifaDefault = ? WHERE id = ?");
+        $stmt->bind_param("iiiiidi", $nBanys, $nHab, $x, $y, $pob, $tarifa, $idCasa);
+        $stmt->execute();
+
+
+        return $stmt;
+
+    }
+
+    public function deleteCaract($idCasa)
+    {
+        $stmt = $this->conexio->prepare("DELETE FROM caracteristicacasa WHERE casa_id = ?");
+        $stmt->bind_param("i", $idCasa);
+        $stmt->execute();
+
+
+        return $stmt;
+    }
+
+    public function updateTraduccio($idCasa, $desc, $nom, $idioma)
+    {
+
+        $stmt = $this->conexio->prepare("UPDATE traducciocasa SET tradDescripcio = ?, traduccioNom = ? WHERE casa_id = ? AND idioma_id = ?");
+        $stmt->bind_param("ssis", $desc, $nom, $idCasa, $idioma);
+        $stmt->execute();
+
+
+        return $stmt;
+    }
+
+
+
 }

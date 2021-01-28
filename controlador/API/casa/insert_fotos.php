@@ -1,9 +1,9 @@
 <?php
 
 include_once('../../controlador_casa.php');
-include_once '../../../models/config/DataBase.php';
-include_once '../../../models/classes/casa/Casa.php';
-include_once '../../../models/classes/casa/Poblacio.php';
+include_once ('../../../models/config/DataBase.php');
+include_once ('../../../models/classes/casa/Casa.php');
+include_once ('../../../models/classes/casa/Poblacio.php');
 
 
     $cont = new controlador_casa();

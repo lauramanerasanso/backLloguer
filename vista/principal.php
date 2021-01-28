@@ -14,24 +14,9 @@ include_once '../php/controlAcces.php';
           <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Cases</title>
-    <style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/css/_general.css"/>
 
-    header{
-        background-color: white
-    }
-    #cardsCases{
-        margin-top: 5%;
-    }
-    body{
-        background-color: whitesmoke;
-    }
-    body header nav ul li .nav-link {
-        padding-right: 25px !important;
-        font-family: "Bungee", cursive;
-        color: black;
-        font-size: 20px;
-    }
-    </style>
 </head>
 <body>
   <?php
@@ -58,7 +43,7 @@ include_once '../php/controlAcces.php';
                         var desc = cases[cs].tradDescripcio;
                         var foto = "../imatges/"+cases[cs].img_principal;
 
-                        var cardDiv = $("<div/>", {class: "card mb-3"});
+                        var cardDiv = $("<div/>", {class: "card col-12 mb-3"});
                         var cardRow = $("<div/>", {class: "row g-0"});
                         var cardCol1 = $("<div/>", {class: "col-md-4"});
                         var cardImg = $("<img/>", {src: foto,class:"card-img"});
@@ -87,4 +72,7 @@ include_once '../php/controlAcces.php';
 
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </html>
