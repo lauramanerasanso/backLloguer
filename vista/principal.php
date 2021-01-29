@@ -38,12 +38,13 @@ include_once '../php/controlAcces.php';
                         var rowDiv = $("<div/>", {class: "row",});
                         $("#cardsCases").append(rowDiv);
 
-                        var id = cases[cs].id;
+                        var idCasa = cases[cs].id;
                         var nom = cases[cs].traduccioNom;
                         var desc = cases[cs].tradDescripcio;
                         var foto = "../imatges/"+cases[cs].img_principal;
 
                         var cardDiv = $("<div/>", {class: "card col-12 mb-3"});
+                        var link = $("<a/>",{href: "gestioCasa.php?id="+idCasa, class: "stretched-link"});
                         var cardRow = $("<div/>", {class: "row g-0"});
                         var cardCol1 = $("<div/>", {class: "col-md-4"});
                         var cardImg = $("<img/>", {src: foto,class:"card-img"});
@@ -55,10 +56,11 @@ include_once '../php/controlAcces.php';
                         var cardH5 = $("<h5/>", {class: "card-title", text: nom});
                         var cardP = $("<p/>", {class: "card-text", text: desc});
 
+
                         cardBody.append(cardH5, cardP);
                         cardCol2.append(cardBody);
                         cardRow.append(cardCol1, cardCol2);
-                        cardDiv.append(cardRow);
+                        cardDiv.append(cardRow,link);
                         rowDiv.append(cardDiv);
 
                     }
