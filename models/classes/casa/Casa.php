@@ -172,6 +172,30 @@ class casa
         return $stmt;
     }
 
+    public function inserirBloqueig($idCasa,$dataInici,$dataFi){
+
+        $stmt = $this->conexio->prepare("INSERT INTO bloqueig VALUES(?,?,?)");
+        $stmt->bind_param("ssi", $dataInici,$dataFi,$idCasa);
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
+    public function comprovarReserva($idCasa,$dataInici, $dataFi){
+
+        $stmt = $this->conexio->prepare("SELECT count(*) FROM reserva JOIN bloqueig ON bloqueig.casa_id=reserva.casa_id WHERE (reserva.data_fi BETWEEN (?) AND (?)) OR (reserva.data_inici BETWEEN (?) AND (?)) AND reserva.casa_id=?");
+        $stmt->bind_param("ssssi", $dataInici, $dataFi,$dataInici, $dataFi, $idCasa);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $row = $result->fetch_assoc();
+
+        return $row['count(*)'];
+
+    }
+
 
 
 }

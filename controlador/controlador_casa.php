@@ -14,7 +14,7 @@ public function select(){
 
     $outp = $result->fetch_all(MYSQLI_ASSOC);
     return $outp;
-    
+
 
 }
 
@@ -134,6 +134,23 @@ public function inserirFotos($idCasa,$f1,$f2,$f3,$f4,$f5){
 
 
     }
+
+    public function insertBloqueig($idCasa, $dataInici, $dataFi){
+
+    $con_db = DataBase::getConn();
+    $casa = new Casa($con_db);
+
+    $casa->inserirBloqueig($idCasa, $dataInici, $dataFi);
+
+}
+
+public function comprovReserva($idCasa, $dataInici, $dataFi){
+
+    $con_db = DataBase::getConn();
+    $casa = new Casa($con_db);
+
+    return $casa->comprovarReserva($idCasa, $dataInici, $dataFi);
+}
 
 
 
