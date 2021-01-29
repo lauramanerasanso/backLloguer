@@ -1,4 +1,6 @@
 <?php
+include_once '../php/controlAcces.php';
+
 if (isset($_GET['id'])) {
     $idCasa = $_GET['id'];
 }

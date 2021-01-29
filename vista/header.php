@@ -19,7 +19,7 @@
                     <a class="nav-link" href="gestioUsuari.php"> Configuració d'usuari</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../php/tancarSessio.php"> Tancar Usuari </a>
+                    <a class="nav-link" href="../php/tancarSessio.php"> Tancar sessió </a>
                 </li>
 
 
