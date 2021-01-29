@@ -19,4 +19,5 @@ if (isset($_POST['idCasa']) && isset($_POST['pob']) && isset($_POST['banys']) &&
 
     $controlador->updateCasa($idCasa, $_POST['pob'], $_POST['banys'], $_POST['hab'], $_POST['x'], $_POST['y'], $_POST['preu'], $nom1, $nom2, $desc1, $desc2, $array);
 
+    header("Location: ../../../vista/gestioCasa.php?id=$idCasa");
 }

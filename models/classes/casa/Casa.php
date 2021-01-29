@@ -172,6 +172,7 @@ class casa
         return $stmt;
     }
 
+
     public function inserirBloqueig($idCasa,$dataInici,$dataFi){
 
         $stmt = $this->conexio->prepare("INSERT INTO bloqueig VALUES(?,?,?)");
@@ -195,6 +196,7 @@ class casa
         return $row['count(*)'];
 
     }
+
 
 
 
