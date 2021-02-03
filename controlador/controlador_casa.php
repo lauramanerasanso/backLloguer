@@ -1,67 +1,71 @@
 <?php
 
 
-
 class controlador_casa
 {
 
-public function select(){
+    public function select()
+    {
 
-    $con_db = DataBase::getConn();
-    $casa = new Casa($con_db);
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
 
-    $result = $casa->select();
+        $result = $casa->select();
 
-    $outp = $result->fetch_all(MYSQLI_ASSOC);
-    return $outp;
-    
+        $outp = $result->fetch_all(MYSQLI_ASSOC);
+        //return $outp;
+        echo json_encode($outp);
 
-}
-
-public function insertCasa($pob,$banys, $hab, $x , $y, $preu, $nom1, $nom2, $desc1, $desc2,$caract){
-
-    $con_db = DataBase::getConn();
-
-    $p = new Poblacio($con_db);
-    $casa = new Casa($con_db);
-
-    $p->setNom($pob);
-    $afegit = $p->insertPoblacio();
-
-    if(isset($afegit)){
-        $idPob = $p->selectPoblID();
-        $insertCasa = $casa->insert($banys,$hab,$x,$y,$idPob,$preu);
     }
 
-    if(isset($insertCasa)){
-        $idCasa = $casa->select_id($x,$y);
-        $casa->traduccio($idCasa,$nom1,$desc1,$nom2,$desc2);
+    public function insertCasa($pob, $banys, $hab, $x, $y, $preu, $nom1, $nom2, $desc1, $desc2, $caract)
+    {
 
-        for($i = 0; $i < count($caract); $i++){
+        $con_db = DataBase::getConn();
 
-            $casa->insertCaract($caract[$i],$idCasa);
+        $p = new Poblacio($con_db);
+        $casa = new Casa($con_db);
+
+        $p->setNom($pob);
+        $afegit = $p->insertPoblacio();
+
+        if (isset($afegit)) {
+            $idPob = $p->selectPoblID();
+            $insertCasa = $casa->insert($banys, $hab, $x, $y, $idPob, $preu);
+        }
+
+        if (isset($insertCasa)) {
+            $idCasa = $casa->select_id_max();
+
+            $casa->traduccio($idCasa, $nom1, $desc1, $nom2, $desc2);
+
+            for ($i = 0; $i < count($caract); $i++) {
+
+                $casa->insertCaract($caract[$i], $idCasa);
+            }
+
+
         }
 
 
+        return $idCasa;
+
     }
 
+    public function id_Max()
+    {
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+        return $casa->select_id_max();
+    }
 
-return $idCasa;
+    public function inserirFotos($idCasa, $f1, $f2, $f3, $f4, $f5)
+    {
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
 
-}
-
-public function id_Max(){
-    $con_db = DataBase::getConn();
-    $casa = new Casa($con_db);
-    return $casa->select_id_max();
-}
-
-public function inserirFotos($idCasa,$f1,$f2,$f3,$f4,$f5){
-    $con_db = DataBase::getConn();
-    $casa = new Casa($con_db);
-
-    $casa->insertImatges($idCasa,$f1,$f2,$f3,$f4,$f5);
-}
+        $casa->insertImatges($idCasa, $f1, $f2, $f3, $f4, $f5);
+    }
 
 
     public function select_casa_nom($id)
@@ -135,7 +139,8 @@ public function inserirFotos($idCasa,$f1,$f2,$f3,$f4,$f5){
 
     }
 
-    public function insertBloqueig($idCasa, $dataInici, $dataFi){
+    public function insertBloqueig($idCasa, $dataInici, $dataFi)
+    {
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
@@ -144,15 +149,14 @@ public function inserirFotos($idCasa,$f1,$f2,$f3,$f4,$f5){
 
     }
 
-    public function comprovReserva($idCasa, $dataInici, $dataFi){
+    public function comprovReserva($idCasa, $dataInici, $dataFi)
+    {
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
         return $casa->comprovarReserva($idCasa, $dataInici, $dataFi);
     }
-
-
 
 
 }

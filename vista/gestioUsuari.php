@@ -31,7 +31,7 @@ include_once '../php/controlAcces.php';
 <?php include ('header.php');?>
     <div class="container auth align-self-center">
         <h1>CANVIA LA CONTRASENYA</h1>
-        <form class="col" action="../controlador/API/user/changePasswd.php" method="post">
+        <form class="col" action="../API/user/changePasswd.php" method="post">
             <div class="form-row">
                 <div class="form-group col-6">
                     <label for="oldPasswd">CONTRASENYA ACTUAL</label>

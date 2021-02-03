@@ -47,7 +47,7 @@ include_once '../php/controlAcces.php';
                         var link = $("<a/>",{href: "gestioCasa.php?id="+idCasa, class: "stretched-link"});
                         var cardRow = $("<div/>", {class: "row g-0"});
                         var cardCol1 = $("<div/>", {class: "col-md-4"});
-                        var cardImg = $("<img/>", {src: foto,class:"card-img"});
+                        var cardImg = $("<img/>", {src: foto,class:"card-img",alt:desc});
 
                         cardCol1.append(cardImg);
 
@@ -66,7 +66,7 @@ include_once '../php/controlAcces.php';
                     }
                 }
             };
-            xhttp.open("GET","../controlador/API/casa/selectCasa.php", true);
+            xhttp.open("GET","../API/casa/selectCasa.php", true);
             xhttp.send();
         }
 

@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="img_principal" role="tabpanel"
              aria-labelledby="img_principal-tab">
-            <form method="post" id="myForm" action="../controlador/API/casa/update_fotos.php"
+            <form method="post" id="myForm" action="../API/casa/update_fotos.php"
                   enctype="multipart/form-data">
 
 
@@ -95,7 +95,7 @@ if (isset($_GET['id'])) {
 
 
         <div class="tab-pane fade" id="img_2" role="tabpanel" aria-labelledby="img_2-tab">
-            <form method="post" id="myForm" action="../controlador/API/casa/update_fotos.php"
+            <form method="post" id="myForm" action="../API/casa/update_fotos.php"
                   enctype="multipart/form-data">
 
                 <div class="row" style="margin-top: 2%">
@@ -126,7 +126,7 @@ if (isset($_GET['id'])) {
 
         </div>
         <div class="tab-pane fade" id="img_3" role="tabpanel" aria-labelledby="img_3-tab">
-            <form method="post" id="myForm" action="../controlador/API/casa/update_fotos.php"
+            <form method="post" id="myForm" action="../API/casa/update_fotos.php"
                   enctype="multipart/form-data">
 
                 <div class="row" style="margin-top: 2%">
@@ -158,7 +158,7 @@ if (isset($_GET['id'])) {
 
         </div>
         <div class="tab-pane fade" id="img_4" role="tabpanel" aria-labelledby="img_4-tab">
-            <form method="post" id="myForm" action="../controlador/API/casa/update_fotos.php"
+            <form method="post" id="myForm" action="../API/casa/update_fotos.php"
                   enctype="multipart/form-data">
 
 
@@ -190,7 +190,7 @@ if (isset($_GET['id'])) {
         </div>
         <div class="tab-pane fade" id="img_5" role="tabpanel" aria-labelledby="img_5-tab">
 
-            <form method="post" id="myForm" action="../controlador/API/casa/update_fotos.php"
+            <form method="post" id="myForm" action="../API/casa/update_fotos.php"
                   enctype="multipart/form-data">
                 <div class="row" style="margin-top: 2%">
                     <div class="col-md-4 offset-3">
@@ -269,7 +269,7 @@ if (isset($_GET['id'])) {
 
 
                 $.ajax({
-                    url: '../controlador/API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=1',
+                    url: '../API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=1',
                     type: 'POST',
                     data: formData,
                     contentType: false,
@@ -295,7 +295,7 @@ if (isset($_GET['id'])) {
                 formData.append('file', foto);
 
                 $.ajax({
-                    url: '../controlador/API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=2',
+                    url: '../API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=2',
                     type: 'POST',
                     data: formData,
                     contentType: false,
@@ -322,7 +322,7 @@ if (isset($_GET['id'])) {
 
 
                 $.ajax({
-                    url: '../controlador/API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=3',
+                    url: '../API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=3',
                     type: 'POST',
                     data: formData,
                     contentType: false,
@@ -347,7 +347,7 @@ if (isset($_GET['id'])) {
 
 
                 $.ajax({
-                    url: '../controlador/API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=4',
+                    url: '../API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=4',
                     type: 'POST',
                     data: formData,
                     contentType: false,
@@ -372,7 +372,7 @@ if (isset($_GET['id'])) {
                 formData.append('file', foto);
 
                 $.ajax({
-                    url: '../controlador/API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=5',
+                    url: '../API/casa/update_fotos.php?idCasa=<?= $idCasa ?>&idImg=5',
                     type: 'POST',
                     data: formData,
                     contentType: false,

@@ -27,29 +27,29 @@
 <body>
 
 <div id="d" class="min-vh-100">
-    <img src="imatges/logo_final.png">
+    <img src="imatges/logo_final.png" alt="Logo MallorcaRustic">
 
 
     <div class="container auth align-self-center">
         <h1>AUTENTICACIÓ</h1>
-        <form class="col" action="controlador/API/user/checkPasswd.php" method="post">
+        <form class="col" action="API/user/checkPasswd.php" method="post">
             <div class="form-row">
                 <div class="form-group col-6 col-md-6 col-sm-6">
                     <label for="username">USUARI</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="USUARI">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="USUARI" required>
                 </div>
                 <div class="form-group col-5 col-md-5 col-sm-5">
                     <label for="passwd">CONTRASENYA</label>
-                    <input type="password" class="form-control" name="passwd" id="passwd" placeholder="CONTRASENYA">
+                    <input type="password" class="form-control" name="passwd" id="passwd" placeholder="CONTRASENYA" required>
                 </div>
                 <div class=" text-white col-1 col-md-1 col-sm-1 mt-3 pt-3">
                     <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
                 </div>
             </div>
             <div class="d-flex">
-            <button type="submit" id="bEntrar" class="btn col-md-2 ml-auto">Entra</button>
+                <button type="submit" id="bEntrar" class="btn col-md-2 ml-auto">Entra</button>
             </div>
-
+        </form>
 
     </div>
 </div>

@@ -1,4 +1,5 @@
 <?php
+
 include_once '../php/controlAcces.php';
 ?>
 
@@ -234,19 +235,22 @@ include_once '../php/controlAcces.php';
         <div class="tab-pane fade" id="ubi" role="tabpanel" aria-labelledby="ubi-tab">
             <div class="container">
                 <h4 style="margin-top: 2%;">Coordenades :</h4>
-                <div class="row" style="margin-top: 2%;">
-                    <label class="control-label col-md-1" for="inlineFormCustomSelect">X</label>
-                    <input type="text" class="form-control col-4" id="x">
-
-                    <label class="control-label col-md-1" for="inlineFormCustomSelect">Y</label>
-                    <input type="text" class="form-control col-4" id="y">
-
-                </div>
                 <div class="row">
-                    <label class="control-label col-md-1" for="inlineFormCustomSelect">Població</label>
-                    <input type="text" class="form-control col-4" id="pob">
+
+                    <div id="googleMap" style="width:100%;height:400px;margin:10px;align-content: center"></div>
 
                 </div>
+                <div class="row" style="margin-top: 2%;">
+                    <label class="control-label col-md-1" for="inlineFormCustomSelect">Longitud</label>
+                    <input type="text" class="form-control col-3" id="x">
+
+                    <label class="control-label col-md-1" for="inlineFormCustomSelect">Latitud</label>
+                    <input type="text" class="form-control col-3" id="y">
+
+                    <label class="control-label col-md-1" for="inlineFormCustomSelect">Població</label>
+                    <input type="text" class="form-control col-3" id="pob">
+                </div>
+                <br/>
 
                 <br/>
                 <div class="d-flex">
@@ -277,7 +281,7 @@ include_once '../php/controlAcces.php';
         </div>
         <div class="tab-pane fade" id="imatges" role="tabpanel" aria-labelledby="imatges-tab">
             <div class="container">
-                <form method="post" id="myForm" action="../controlador/API/casa/insert_fotos.php"
+                <form method="post" id="myForm" action="../API/casa/insert_fotos.php"
                       enctype="multipart/form-data">
                     <h4 style="margin-top: 2%;">Imatges :</h4>
                     <div class="row" style="margin-top: 2%;">
@@ -338,6 +342,55 @@ include_once '../php/controlAcces.php';
 <script>
     $(document).ready(function () {
 
+        function myMap() {
+
+            var marker;
+
+            var mapOptions = {
+                center: new google.maps.LatLng(39.60017583077754, 2.9943578633572976),
+                zoom: 9,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+            };
+
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                placeMarker(event.latLng);
+
+                /* var marker = new google.maps.Marker({
+                     position: event.latLng,
+                     icon:'../imatges/icon.png',
+                     map:map,
+                     draggable:true,
+                 });
+
+                 document.getElementById("x").value = event.latLng.lng();
+                 document.getElementById("y").value = event.latLng.lat();*/
+
+            });
+
+            function placeMarker(location) {
+
+                if (!marker || !marker.setPosition) {
+                    marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        icon: '../imatges/icon.png',
+                    });
+
+                    document.getElementById("x").value = location.lng();
+                    document.getElementById("y").value = location.lat();
+                } else {
+                    marker.setPosition(location);
+                    document.getElementById("x").value = location.lng();
+                    document.getElementById("y").value = location.lat();
+                }
+
+            }
+        }
+
         $(".custom-file-input").on("change", function () {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -383,7 +436,7 @@ include_once '../php/controlAcces.php';
 
             var xhttp = new XMLHttpRequest();
 
-            xhttp.open("POST", "../controlador/API/casa/insert.php", true);
+            xhttp.open("POST", "../API/casa/insert.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("pob=" + pob + "&banys=" + banys + "&hab=" + hab + "&x=" + x + "&y=" + y + "&preu=" + preu + "&nom1=" + nom1 + "&nom2=" + nom2 + "&desc1=" + desc1 + "&desc2=" + desc2 + "&caract=" + arrayC);
 
@@ -411,8 +464,11 @@ include_once '../php/controlAcces.php';
             });
 
         });
+
+        google.maps.event.addDomListener(window, 'load', myMap);
     });
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCKiIqCdZGrVxx06LSbe7uG3zXOq1Cz5k"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"

@@ -34,7 +34,7 @@ class casa
 
 
         $stmt = $this->conexio->prepare("INSERT INTO casa (nBanys, nHabitacions, x, y, poblacio_id , propietari_persona_id, tarifaDefault) VALUES (?,?,?,?,?,1,?)");
-        $stmt->bind_param("iiiiid", $nBanys, $nHab, $x, $y, $pob, $tarifa );
+        $stmt->bind_param("iiddid", $nBanys, $nHab, $x, $y, $pob, $tarifa );
         $stmt->execute();
 
 
@@ -45,11 +45,12 @@ class casa
     public function select_id($x,$y){
 
         $stmt = $this->conexio->prepare("SELECT id FROM casa WHERE x = ? AND y = ?");
-        $stmt->bind_param("ii", $x, $y);
+        $stmt->bind_param("dd", $x, $y);
         $stmt->execute();
 
         $resultat = $stmt->get_result();
         $row = $resultat->fetch_assoc();
+
 
         return $row['id'];
 
@@ -143,7 +144,7 @@ class casa
 
 
         $stmt = $this->conexio->prepare("UPDATE casa SET nBanys = ?, nHabitacions = ?, x = ?, y = ? , poblacio_id = ? , tarifaDefault = ? WHERE id = ?");
-        $stmt->bind_param("iiiiidi", $nBanys, $nHab, $x, $y, $pob, $tarifa, $idCasa);
+        $stmt->bind_param("iiddidi", $nBanys, $nHab, $x, $y, $pob, $tarifa, $idCasa);
         $stmt->execute();
 
 

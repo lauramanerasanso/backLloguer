@@ -18,9 +18,9 @@ class userControlador{
             $user->setPassword($row['contrasenya']);
             session_start();
             $_SESSION['acces'] = "SI";
-            header('Location: ../../../vista/principal.php');
+            header('Location: ../../vista/principal.php');
         }else{
-            header('Location: ../../../index.php');
+            header('Location: ../../index.php');
         }
     }
 
