@@ -157,6 +157,26 @@ class controlador_casa
 
         return $casa->comprovarReserva($idCasa, $dataInici, $dataFi);
     }
+    public function insertTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa){
+
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->inserirTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+
+    }
+
+    public function selectNomTarifes($id)
+    {
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $result = $casa->seleccionarNomTarifes($id);
+
+        $outp = $result->fetch_all(MYSQLI_ASSOC);
+
+        echo json_encode($outp);
+    }
 
 
 }

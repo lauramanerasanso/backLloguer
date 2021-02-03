@@ -198,6 +198,29 @@ class casa
 
     }
 
+    public function inserirTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa){
+
+        $stmt = $this->conexio->prepare("INSERT INTO tarifa VALUES(?,?,?,?,?)");
+        $stmt->bind_param("idsss",$idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
+    public function seleccionarNomTarifes($id)
+    {
+
+        $stmt = $this->conexio->prepare("SELECT nom_tarifa, preu_tarifa FROM tarifa WHERE casa_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $resultat = $stmt->get_result();
+
+        return $resultat;
+
+    }
+
 
 
 
