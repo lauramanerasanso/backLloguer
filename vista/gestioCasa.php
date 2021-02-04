@@ -95,7 +95,7 @@ include('header.php');
             };
 
 
-            xhttp.open("POST", "../controlador/API/casa/bloqueigCases.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
+            xhttp.open("POST", "../API/casa/bloqueigCases.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi);
 
