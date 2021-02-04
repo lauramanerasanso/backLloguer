@@ -33,36 +33,42 @@ include_once '../php/controlAcces.php';
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if(this.readyState == 4 && this.status == 200) {
+
+
                     var cases = JSON.parse(this.responseText);
+                    var i = 0;
                     for(cs in cases) {
-                        var rowDiv = $("<div/>", {class: "row",});
-                        $("#cardsCases").append(rowDiv);
+
+                        if(i==3){
+                            i=0;
+                        }
+
+                        if(i == 0){
+                            var rowDIV = $("<div/>",{class:"row",});
+                            $("#cardsCases").append(rowDIV);
+                        }
+
+                        i++;
 
                         var idCasa = cases[cs].id;
                         var nom = cases[cs].traduccioNom;
                         var desc = cases[cs].tradDescripcio;
                         var foto = "../imatges/"+cases[cs].img_principal;
 
-                        var cardDiv = $("<div/>", {class: "card col-12 mb-3"});
-                        var link = $("<a/>",{href: "gestioCasa.php?id="+idCasa, class: "stretched-link"});
-                        var cardRow = $("<div/>", {class: "row g-0"});
-                        var cardCol1 = $("<div/>", {class: "col-md-4"});
-                        var cardImg = $("<img/>", {src: foto,class:"card-img",alt:desc});
-
-                        cardCol1.append(cardImg);
-
-                        var cardCol2 = $("<div/>", {class: "col-md-8"});
-                        var cardBody = $("<div/>", {class: "card-body"});
-                        var cardH5 = $("<h5/>", {class: "card-title", text: nom});
-                        var cardP = $("<p/>", {class: "card-text", text: desc});
 
 
-                        cardBody.append(cardH5, cardP);
-                        cardCol2.append(cardBody);
-                        cardRow.append(cardCol1, cardCol2);
-                        cardDiv.append(cardRow,link);
-                        rowDiv.append(cardDiv);
-
+                        var colDIV = $("<div/>",{class:"col-sm-4"});
+                        var cardDIV = $("<div/>", {class:"card",style: "margin-bottom: 5%"});
+                        var cardIMG = $("<img/>",{class:"card-img-top", src:foto, alt:"card image", style:"width:100%"});
+                        cardDIV.append(cardIMG);
+                        var cardBody = $("<div/>",{class:"card-body"});
+                        var cardH4 = $("<h4/>",{class:"card-title", text:nom});
+                        var cardP = $("<p/>",{class:"card-text", text:desc});
+                        var cardA = $("<a/>",{href: "cases/gestionar/"+idCasa, class: "stretched-link"});
+                        cardBody.append(cardH4, cardP, cardA);
+                        cardDIV.append(cardBody);
+                        colDIV.append(cardDIV);
+                        rowDIV.append(colDIV);
                     }
                 }
             };
