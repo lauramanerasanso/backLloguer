@@ -66,7 +66,7 @@ include('header.php');
     <br/>
     <div class="row">
         <div class="col-3 offset-10">
-            <a id="GestioTarifes" href="gestioTarifa.php?id=<?=$idCasa?>" class="btn">Editar Informació</a>
+            <a id="GestioTarifes" href="gestioTarifa.php?id=<?=$idCasa?>" class="btn">Gestionar Tarifes</a>
         </div>
     </div>
 
