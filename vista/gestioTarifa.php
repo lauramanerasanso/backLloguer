@@ -121,7 +121,7 @@ include('header.php');
                     }
                 }
             };
-            xhttp.open("POST", "../controlador/API/casa/aplicarTarifa.php", true);
+            xhttp.open("POST", "../API/casa/aplicarTarifa.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("idCasa=" + idCasa);
         }
@@ -142,7 +142,7 @@ include('header.php');
 
             };
 
-            xhttp.open("POST", "../controlador/API/casa/afegirTarifa.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
+            xhttp.open("POST", "../API/casa/afegirTarifa.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("idCasa=" + idCasa + "&preuTarifa=" + preuTarifa + "&dataInici=" + dataInici + "&dataFi=" + dataFi + "&nomTarifa=" + nomTarifa);
 
@@ -170,7 +170,7 @@ console.log(preuTarifa);
 
             var xhttp = new XMLHttpRequest();
 
-                xhttp.open("POST", "../controlador/API/casa/afegirTarifa.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
+                xhttp.open("POST", "../API/casa/afegirTarifa.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("idCasa=" + idCasa + "&preuTarifa=" + preuTarifa + "&dataInici=" + dataInici + "&dataFi=" + dataFi + "&nomTarifa=" + nomTarifa);
 

@@ -211,7 +211,7 @@ class casa
     public function seleccionarNomTarifes($id)
     {
 
-        $stmt = $this->conexio->prepare("SELECT nom_tarifa, preu_tarifa FROM tarifa WHERE casa_id = ?");
+        $stmt = $this->conexio->prepare("SELECT nom_tarifa, preu_tarifa FROM tarifa WHERE casa_id = ? group by nom_tarifa");
         $stmt->bind_param("i", $id);
         $stmt->execute();
 

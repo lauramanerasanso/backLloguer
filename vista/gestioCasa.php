@@ -63,9 +63,11 @@ include('header.php');
             <a id="ModificarImg" href="formEditarFotos.php?id=<?=$idCasa?>" class="btn">Modificar Imatges</a>
         </div>
     </div>
-
-    <div id="info">
-
+    <br/>
+    <div class="row">
+        <div class="col-3 offset-10">
+            <a id="GestioTarifes" href="gestioTarifa.php?id=<?=$idCasa?>" class="btn">Editar Informació</a>
+        </div>
     </div>
 
 </div>
