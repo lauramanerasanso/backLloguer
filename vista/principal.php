@@ -64,7 +64,7 @@ include_once '../php/controlAcces.php';
                         var cardBody = $("<div/>",{class:"card-body"});
                         var cardH4 = $("<h4/>",{class:"card-title", text:nom});
                         var cardP = $("<p/>",{class:"card-text", text:desc});
-                        var cardA = $("<a/>",{href: "cases/gestionar/"+idCasa, class: "stretched-link"});
+                        var cardA = $("<a/>",{href: "gestioCasa.php?id="+idCasa, class: "stretched-link"});
                         cardBody.append(cardH4, cardP, cardA);
                         cardDIV.append(cardBody);
                         colDIV.append(cardDIV);
