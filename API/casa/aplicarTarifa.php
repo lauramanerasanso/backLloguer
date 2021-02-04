@@ -1,7 +1,7 @@
 <?php
-include_once('../../controlador_casa.php');
-include_once ('../../../models/config/DataBase.php');
-include_once ('../../../models/classes/casa/Casa.php');
+include_once('../../controlador/controlador_casa.php');
+include_once ('../../models/config/DataBase.php');
+include_once ('../../models/classes/casa/Casa.php');
 
 
 if(isset($_POST['idCasa'])){
