@@ -32,20 +32,20 @@
     <div id="cover-caption">
         <div class="container">
             <div class="row text-white">
-                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                    <h1 class=" py-4 text-truncate">Autenticació</h1>
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
+                    <h1 class=" py-4 text-truncate text-center">Autenticació</h1>
                     <div class="px-2">
-                        <form action="API/user/checkPasswd.php" method="post">
-                            <div class="form-group">
-                                <label for="username">USUARI</label>
-                                <input type="text" class="form-control" name="username" id="username"
+                        <form>
+                            <div class="form-group row">
+                                <label for="username" class="col-4 mt-1">USUARI</label>
+                                <input type="text" class="form-control col-6" name="username" id="username"
                                        placeholder="USUARI" required>
                             </div>
-                            <div class="form-group">
-                                <label for="passwd">CONTRASENYA</label>
-                                <input type="password" class="form-control" name="passwd" id="passwd"
+                            <div class="form-group row">
+                                <label for="passwd" class="col-4 mt-1">CONTRASENYA</label>
+                                <input type="password" class="form-control col-6" name="passwd" id="passwd"
                                        placeholder="CONTRASENYA" required>
-                                <div class=" text-white col-1 col-md-1 col-sm-1 mt-3 pt-3">
+                                <div class=" text-white col-1 col-md-1 col-sm-1 mt-2">
                                     <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
                                 </div>
                             </div>
@@ -86,7 +86,39 @@
         }
     }, false);
 
+    $(document).ready(function () {
 
+        $("#bEntrar").click(function () {
+
+            var usuari = $("#username").val();
+            var password = $("#passwd").val();
+
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var info = JSON.parse(this.responseText);
+
+                    if (info == "OK") {
+
+                        location.href = "http://proves.home/cases";
+                    } else {
+                        location.href = "http://proves.home";
+                    }
+
+                }
+
+            };
+
+            xhttp.open("POST", "http://api.home/usuari/check-pass", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("username=" + usuari + "&passwd=" + password);
+
+
+        });
+    });
 
 
 </script>
