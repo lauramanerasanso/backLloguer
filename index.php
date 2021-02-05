@@ -35,7 +35,7 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
                     <h1 class=" py-4 text-truncate text-center">Autenticació</h1>
                     <div class="px-2">
-                        <form action="POST">
+                        <form  action="API/user/checkPasswd.php" method="post">
                             <div class="form-group row">
                                 <label for="username" class="col-4 mt-1">USUARI</label>
                                 <input type="text" class="form-control col-6" name="username" id="username"
@@ -85,40 +85,6 @@
             hide();
         }
     }, false);
-
-    $(document).ready(function () {
-
-        $("#bEntrar").click(function () {
-
-            var usuari = $("#username").val();
-            var password = $("#passwd").val();
-
-
-            var xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-                    var info = JSON.parse(this.responseText);
-
-                    if (info == "OK") {
-
-                        location.href = "http://proves.home/cases";
-                    } else {
-                        location.href = "http://proves.home";
-                    }
-
-                }
-
-            };
-
-            xhttp.open("POST", "http://api.home/usuari/check-pass", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("username=" + usuari + "&passwd=" + password);
-
-
-        });
-    });
 
 
 </script>
