@@ -8,7 +8,7 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/css/_autenticacio.css"/>
+    <link rel="stylesheet" href="../style/css/_autenticacio.css"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -26,33 +26,42 @@
 
 <body>
 
-<div id="d" class="min-vh-100">
-    <img src="imatges/logo_final.png" alt="Logo MallorcaRustic">
 
+<section id="cover" class="min-vh-100">
+    <img src="../imatges/logo_final.png">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class=" py-4 text-truncate">Autenticació</h1>
+                    <div class="px-2">
+                        <form action="API/user/checkPasswd.php" method="post">
+                            <div class="form-group">
+                                <label for="username">USUARI</label>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="USUARI" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwd">CONTRASENYA</label>
+                                <input type="password" class="form-control" name="passwd" id="passwd"
+                                       placeholder="CONTRASENYA" required>
+                                <div class=" text-white col-1 col-md-1 col-sm-1 mt-3 pt-3">
+                                    <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <button type="submit" id="bEntrar" class="btn col-md-3 ml-auto">Entra</button>
 
-    <div class="container auth align-self-center">
-        <h1>AUTENTICACIÓ</h1>
-        <form class="col" action="API/user/checkPasswd.php" method="post">
-            <div class="form-row">
-                <div class="form-group col-6 col-md-6 col-sm-6">
-                    <label for="username">USUARI</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="USUARI" required>
-                </div>
-                <div class="form-group col-5 col-md-5 col-sm-5">
-                    <label for="passwd">CONTRASENYA</label>
-                    <input type="password" class="form-control" name="passwd" id="passwd" placeholder="CONTRASENYA" required>
-                </div>
-                <div class=" text-white col-1 col-md-1 col-sm-1 mt-3 pt-3">
-                    <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
-            <div class="d-flex">
-                <button type="submit" id="bEntrar" class="btn col-md-2 ml-auto">Entra</button>
-            </div>
-        </form>
-
+        </div>
     </div>
-</div>
+</section>
+
 <script>
 
     function show() {
@@ -76,6 +85,10 @@
             hide();
         }
     }, false);
+
+
+
+
 </script>
 
 </body>

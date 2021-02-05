@@ -1,31 +1,41 @@
 @import '_colors';
 @import '_botons.scss';
-
-#d{
-
+#cover {
     background: #222 url('../../imatges/casa_1.png') center center no-repeat;
     background-size: cover;
     height: 100%;
     display: block;
-
+    align-items: center;
+    position: relative;
 }
 
+#cover-caption {
+    margin-top: 150px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
 
-.auth {
-    margin-top: 200px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: $black;
-    border-radius: 2px;
-    color: $white;
+h1 {
     font-family: "Bungee", cursive;
-
-    h1 {
-        text-align: center;
-    }
 }
 
+label {
+    font-family: "Bungee", cursive;
+}
 
+.btn {
+    font-family: "Bungee", cursive;
+}
 
-
-
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    border-radius: 10px;
+}
