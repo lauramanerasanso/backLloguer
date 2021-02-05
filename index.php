@@ -35,7 +35,7 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
                     <h1 class=" py-4 text-truncate text-center">Autenticació</h1>
                     <div class="px-2">
-                        <form>
+                        <form action="POST">
                             <div class="form-group row">
                                 <label for="username" class="col-4 mt-1">USUARI</label>
                                 <input type="text" class="form-control col-6" name="username" id="username"
