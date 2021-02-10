@@ -224,7 +224,6 @@ class controlador_casa{
 
         if ($casa->comprovarDatesTarifa($id, $dataIniciNew, $dataFiNew) == 0){
 
-
             $casa->updateAplicacioTarifa($dataInici, $dataIniciNew, $dataFiNew, $nom);
 
             $casa->updateNomPreuTarifa($nom, $nomNew, $preuNew);
@@ -243,6 +242,44 @@ class controlador_casa{
         }
 
         return $resultat;
+
+    }
+
+    public function selectBloq($id){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+        $result = $casa->selectBloq();
+
+        $outp = $result->fetch_all(MYSQLI_ASSOC);
+
+        echo json_encode($outp);
+
+    }
+
+    public function updateBloq($id, $dataInici, $dataIniciNew, $dataFiNew){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+        $casa->updateBloq($dataInici, $dataIniciNew, $dataFiNew);
+
+        return true;
+
+    }
+
+    public function deleteBloq($id, $dataInici){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+        $casa->deleteBloq($dataInici);
+
+        return true;
 
     }
 

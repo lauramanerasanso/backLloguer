@@ -38,19 +38,16 @@ if (isset($_GET['id'])) {
             crossorigin="anonymous"></script>
     <title>Gestió Tarifes</title>
 
-    <style>
-        .ui-datepicker .ui-state-active {
-            background: #967ADC;
-            color: #000000;
-            border-color: #967ADC;
-        }
-    </style>
-
 </head>
 <body>
 <?php
 include('header.php');
 ?>
+<div class="container-fluid">
+    <div class="d-flex">
+        <a href="gestioCasa.php?id=<?=$idCasa?>" class="btn mr-auto"><i class="fas fa-arrow-left"></i> Torna</a>
+    </div>
+</div>
 <div id="c" class="container mt-3">
     <div>
         <button type="button" class="btn" id="btnModalAfegir"> <i class="fas fa-plus"></i>  Afegir una nova tarifa </button>
@@ -257,19 +254,10 @@ include('header.php');
 
         $("#iniciAmagat").val(iniciTarifa);
         $("#editInici").val(iniciTarifa);
-        $("#editInici").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0
-        });
 
         $("#fiAmagat").val(fiTarifa);
         $("#editFi").val(fiTarifa);
-        $("#editFi").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0
-        });
+
     }
 
     function eliminarTarifa(nomTarifa, preuTarifa, iniciTarifa) {
@@ -312,28 +300,9 @@ include('header.php');
             $("#finish").attr("min", inici);
         });
 
-        $("#startaf").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0,
-        });
-
-        $("#finishaf").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0,
-        });
-
-        $("#start").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0,
-        });
-
-        $("#finish").datepicker({
-            dateFormat: 'yy-mm-dd',
-            firstDay: 1,
-            minDate: 0,
+        $("#editInici").change(function (){
+            var inici = $("#editInici").val();
+            $("#editFi").attr("min", inici);
         });
 
         function carregarTarifes() {
@@ -375,7 +344,6 @@ include('header.php');
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-
                 if (this.readyState == 4 && this.status == 200) {
                     var err = JSON.parse(this.responseText);
                     if (!err['success']){
@@ -384,7 +352,6 @@ include('header.php');
                         $("#tarifesTable").empty();
                         carregarTaula();
                     }
-
                 }
             };
 
@@ -449,10 +416,10 @@ include('header.php');
             var th = $("<th/>", {scope:'col', text:"Data Fi"});
             tr.append(th);
 
-            var th = $("<th/>", {scope:'col'});
+            var th = $("<th/>", {scope:'col', text:"Edita"});
             tr.append(th);
 
-            var th = $("<th/>", {scope:'col'});
+            var th = $("<th/>", {scope:'col', text:"Elimina"});
             tr.append(th);
 
             thead.append(tr);

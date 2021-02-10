@@ -87,53 +87,15 @@ include('header.php');
 ?>
 <div id="c" class="container">
     <div class="row">
-        <div id="datepicker" class="col-md-8"></div>
-
-        <div class="col-md-4">
-            <div class="input-group row" data-provide="datepicker">
-
-                <div class = "col-4">
-                    <label for="start">Data d'inici:</label>
-                </div>
-                <div class="col-8">
-                    <input type="date" id="start" name="dataInici" class="form-control">
-                </div>
-
-            </div>
-            <br/>
-            <div class="input-group row" data-provide="datepicker">
-                <div class = "col-4">
-                    <label for="finish">Data fi:</label>
-                </div>
-                <div class="col-8">
-                    <input type="date" id="finish" name="dataFi" class="form-control">
-                </div>
-
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-2 offset-5">
-                    <button id="bloquejar" type="button" class="btn">Bloqueja</button>
-                </div>
-            </div>
-            <br/>
+        <div class="list-group col-md-3">
+            <a href="formEditar.php?id=<?=$idCasa?>" class="list-group-item list-group-item-action">Editar informació</a>
+            <a href="formEditarFotos.php?id=<?=$idCasa?>" class="list-group-item list-group-item-action">Modificar imatges</a>
+            <a href="gestioTarifa.php?id=<?=$idCasa?>" class="list-group-item list-group-item-action">Gestionar tarifes</a>
+            <a href="gestioBloqueig.php?id=<?=$idCasa?>" class="list-group-item list-group-item-action">Gestionar bloqueig</a>
         </div>
+        <div id="datepicker" class="col-md-9"></div>
+
     </div>
-    <br>
-            <div class="row">
-                <div class="col-4">
-                    <a id="EditInfo" href="formEditar.php?id=<?=$idCasa?>" class="btn">Editar Informació</a>
-                </div>
-
-                <div class="col-4">
-                    <a id="ModificarImg" href="formEditarFotos.php?id=<?=$idCasa?>" class="btn">Modificar Imatges</a>
-                </div>
-
-                <div class="col-4">
-                    <a id="GestioTarifes" href="gestioTarifa.php?id=<?=$idCasa?>" class="btn">Gestionar Tarifes</a>
-                </div>
-            </div>
-
 
 </div>
 
@@ -141,7 +103,6 @@ include('header.php');
 
 
     $(document).ready(function() {
-
 
         window.cache = {
             mes: null,
@@ -199,32 +160,7 @@ include('header.php');
 
         });
 
-        $("#bloquejar").click(function(){
 
-            var idCasa = <?= $idCasa ?>;
-            var dataInici = $("#start").val();
-            var dataFi = $("#finish").val();
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-
-                if (this.readyState == 4 && this.status == 200) {
-                    var json = JSON.parse(this.responseText);
-
-                    if(json.success == false){
-                        alert("Les dates que has introduït estan ocupades. Prova unes altres.")
-                    }
-
-                }
-            };
-
-
-            xhttp.open("POST", "../API/casa/bloqueigCases.php"/*?idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi*/, true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("idCasa="+idCasa+"&dataInici="+dataInici+"&dataFi="+dataFi);
-
-
-        });
 
 
 

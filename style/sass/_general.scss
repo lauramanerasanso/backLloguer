@@ -94,3 +94,13 @@ fieldset {
     text-align: center;
   }
 }
+.list-group{
+  .list-group-item-action:hover{
+      background-color: $color_p_hover !important;
+  }
+  .list-group-item-action:active{
+    background-color: $color_principal !important;
+    color: $white;
+  }
+}
+

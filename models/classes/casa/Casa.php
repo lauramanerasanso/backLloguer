@@ -286,6 +286,30 @@ class casa
         return $stmt;
     }
 
+    public function selectBloq(){
+        $stmt = $this->conexio->prepare("SELECT * FROM bloqueig WHERE casa_id = ?");
+        $stmt->bind_param("i", $this->id);
+        $stmt->execute();
 
+        $resultat = $stmt->get_result();
+
+        return $resultat;
+    }
+
+    public function updateBloq($dataInici, $dataIniciNew, $dataFiNew){
+        $stmt = $this->conexio->prepare("UPDATE bloqueig SET bloqueig.data_inici = ?, bloqueig.data_fi = ? WHERE bloqueig.data_inici = ? AND bloqueig.casa_id = ?;");
+        $stmt->bind_param("sssi", $dataIniciNew, $dataFiNew, $dataInici, $this->id);
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function deleteBloq($dataInici){
+        $stmt = $this->conexio->prepare("DELETE FROM bloqueig WHERE bloqueig.data_inici = ? AND bloqueig.casa_id = ? ;");
+        $stmt->bind_param("si", $dataInici, $this->id);
+        $stmt->execute();
+
+        return $stmt;
+    }
 
 }
