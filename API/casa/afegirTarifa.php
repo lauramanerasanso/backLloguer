@@ -15,6 +15,16 @@ if(isset($_POST['idCasa']) && isset($_POST['preuTarifa']) && isset($_POST['dataI
     $dataFi = $_POST['dataFi'];
     $nomTarifa = $_POST['nomTarifa'];
 
-    $idCasa =  $controlador->insertTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+    $result = $controlador->insertTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+
+    if ($result) {
+        echo json_encode([
+            'success' => true,
+        ]);
+    } else {
+        echo json_encode([
+            'success' => false
+        ]);
+    }
 
 }

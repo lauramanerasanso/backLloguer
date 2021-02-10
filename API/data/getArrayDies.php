@@ -7,17 +7,9 @@ $controlador = new controlador_data();
 
 if( isset($_POST['id']) && isset($_POST['anyMes']) ) {
 
-
-
     $id = $_POST['id'];
-
     $anyMes = $_POST['anyMes'];
 
     $controlador->arrayDies($id, $anyMes);
-
-
-}else{
-
-    $controlador->arrayDies(2, "2021-05");
 
 }

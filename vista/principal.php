@@ -1,5 +1,5 @@
 <?php
-include_once '../php/controlAcces.php';
+ include_once '../php/controlAcces.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

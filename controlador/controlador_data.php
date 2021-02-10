@@ -27,13 +27,6 @@ class controlador_data{
 
             $preu = $dates->getPreuDates();
 
-            /*if($isReservat > 0){
-                $info[$i] = array("estat"=>"reservat", "preu"=>$preu);
-            }else if($isBloquetjat > 0){
-                $info[$i] = array("estat"=>"bloquetjat", "preu"=>$preu);
-            }else{
-                $info[$i] = array("estat"=>"lliure", "preu"=>$preu);
-            }*/
             if($isReservat > 0){
                 array_push($info, array("estat"=>"reservat", "preu"=>$preu));
 
@@ -138,17 +131,6 @@ class controlador_data{
 
             }
         }
-        /*$dInici = $dates->setDataInici($data_inici);
-        $dFi = $dates->setDataFi($data_fi);
-        $row = $result->fetch_assoc();
 
-        if($passwd==$row['contrasenya']) {
-            $user->setPassword($row['contrasenya']);
-            session_start();
-            $_SESSION['acces'] = "SI";
-            header('Location: ../../../vista/principal.php');
-        }else{
-            header('Location: ../../../index.php');
-        }*/
     }
 }

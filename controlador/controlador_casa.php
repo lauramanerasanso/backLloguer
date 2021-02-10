@@ -1,11 +1,9 @@
 <?php
 
 
-class controlador_casa
-{
+class controlador_casa{
 
-    public function select()
-    {
+    public function select(){
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
@@ -18,8 +16,7 @@ class controlador_casa
 
     }
 
-    public function insertCasa($pob, $banys, $hab, $x, $y, $preu, $nom1, $nom2, $desc1, $desc2, $caract)
-    {
+    public function insertCasa($pob, $banys, $hab, $x, $y, $preu, $nom1, $nom2, $desc1, $desc2, $caract){
 
         $con_db = DataBase::getConn();
 
@@ -52,15 +49,13 @@ class controlador_casa
 
     }
 
-    public function id_Max()
-    {
+    public function id_Max(){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
         return $casa->select_id_max();
     }
 
-    public function inserirFotos($idCasa, $f1, $f2, $f3, $f4, $f5)
-    {
+    public function inserirFotos($idCasa, $f1, $f2, $f3, $f4, $f5){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
@@ -68,8 +63,7 @@ class controlador_casa
     }
 
 
-    public function select_casa_nom($id)
-    {
+    public function select_casa_nom($id){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
@@ -80,8 +74,7 @@ class controlador_casa
         echo json_encode($outp);
     }
 
-    public function select_caract($id)
-    {
+    public function select_caract($id){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
@@ -93,8 +86,7 @@ class controlador_casa
 
     }
 
-    public function select_info($id)
-    {
+    public function select_info($id){
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
@@ -107,8 +99,7 @@ class controlador_casa
 
     }
 
-    public function updateCasa($idCasa, $pob, $banys, $hab, $x, $y, $preu, $nom1, $nom2, $desc1, $desc2, $caract)
-    {
+    public function updateCasa($idCasa, $pob, $banys, $hab, $x, $y, $preu, $nom1, $nom2, $desc1, $desc2, $caract){
 
         $con_db = DataBase::getConn();
         $p = new Poblacio($con_db);
@@ -139,8 +130,7 @@ class controlador_casa
 
     }
 
-    public function insertBloqueig($idCasa, $dataInici, $dataFi)
-    {
+    public function insertBloqueig($idCasa, $dataInici, $dataFi){
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
@@ -149,25 +139,31 @@ class controlador_casa
 
     }
 
-    public function comprovReserva($idCasa, $dataInici, $dataFi)
-    {
+    public function comprovReserva($idCasa, $dataInici, $dataFi){
 
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
         return $casa->comprovarReserva($idCasa, $dataInici, $dataFi);
     }
-    public function insertTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa){
 
+    public function insertTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
-        $casa->inserirTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+        $resultat = false;
+
+        if($casa->comprovarDatesTarifa($idCasa, $dataInici, $dataFi) == 0){
+
+            $casa->inserirTarifa($idCasa, $preuTarifa, $dataInici, $dataFi, $nomTarifa);
+
+            $resultat = true;
+        }
+        return $resultat;
 
     }
 
-    public function selectNomTarifes($id)
-    {
+    public function selectNomTarifes($id){
         $con_db = DataBase::getConn();
         $casa = new Casa($con_db);
 
@@ -177,6 +173,80 @@ class controlador_casa
 
         echo json_encode($outp);
     }
+
+    public function selectTarifes($id){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+        $result = $casa->selectTarifes();
+
+        $outp = $result->fetch_all(MYSQLI_ASSOC);
+
+        echo json_encode($outp);
+
+    }
+
+    public function selectUnaTarifa($id, $dataInici){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+
+        $result = $casa->selectUnaTarifa($dataInici);
+
+        $outp = $result->fetch_all(MYSQLI_ASSOC);
+
+        echo json_encode($outp);
+
+    }
+
+    public function deleteTarifa($id, $dataInici, $nom){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $casa->setId($id);
+
+        $result = $casa->deleteTarifa($dataInici, $nom);
+
+        echo $result;
+    }
+
+    public function updateAppTarifa($id, $dataInici, $dataIniciNew, $dataFi, $dataFiNew, $nom, $nomNew, $preuNew){
+        $con_db = DataBase::getConn();
+        $casa = new Casa($con_db);
+
+        $resultat = false;
+
+        $casa->setId($id);
+
+        if ($casa->comprovarDatesTarifa($id, $dataIniciNew, $dataFiNew) == 0){
+
+
+            $casa->updateAplicacioTarifa($dataInici, $dataIniciNew, $dataFiNew, $nom);
+
+            $casa->updateNomPreuTarifa($nom, $nomNew, $preuNew);
+
+            $resultat = true;
+
+        }elseif ($dataInici == $dataIniciNew || $dataFi == $dataFiNew){
+
+            $casa->deleteTarifa($dataInici, $nom);
+
+            $casa->inserirTarifa($id, $preuNew, $dataIniciNew, $dataFiNew, $nomNew);
+
+            $casa->updateNomPreuTarifa($nom, $nomNew, $preuNew);
+
+            $resultat = true;
+        }
+
+        return $resultat;
+
+    }
+
+
 
 
 }

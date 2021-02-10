@@ -8,7 +8,7 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style/css/_autenticacio.css"/>
+    <link rel="stylesheet" href="style/css/_autenticacio.css"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -28,7 +28,7 @@
 
 
 <section id="cover" class="min-vh-100">
-    <img src="../imatges/logo_final.png">
+    <img src="imatges/logo_final.png">
     <div id="cover-caption">
         <div class="container">
             <div class="row text-white">
